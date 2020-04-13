@@ -2,8 +2,8 @@
 
 show dbs
 use Zapatillas
-db.createCollection('tallas')
-db.createCollection('colores')
+db.createCollection('tallas');
+db.createCollection('colores');
 show collections
 
 //Insertando datos
