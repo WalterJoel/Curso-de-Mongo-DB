@@ -1,10 +1,7 @@
 //Para este ejemplo se ha creado la BD Zapatillas
 
-show dbs
-use Zapatillas
 db.createCollection('tallas');
 db.createCollection('colores');
-show collections
 
 //Insertando datos
 
