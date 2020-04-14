@@ -2,7 +2,6 @@
 
 db.createCollection('tallas');
 db.createCollection('colores');
-
 //Insertando datos
 
 db.Modelos.insert(
@@ -68,3 +67,24 @@ db.Modelos.update(
   );  
 db.Modelos.find().pretty()
 //Funcion upsert -- sino existe al actualizar, entonces lo crea autimaticamente
+
+db.Modelos.update(
+    {nombre_modelo:'star'},
+    {   
+      nombre_modelo:'si solo escribo un campo nuevo el upsert elimina todos los otros campos',
+      precio_modelo:'y se queda solo con el upsert',
+      nuevo_campo  :'no existo y me creo por el upsert'
+    },
+    {upsert: true}
+  )
+db.Modelos.find().pretty()
+//Ordenar de forma ascendente
+db.Modelos.find().sort({nombre_modelo:1});
+//Ordenar de forma descendente
+db.Modelos.find().sort({nombre_modelo:-1});
+//Elegir cuantos retorna ordenando por un campo
+db.Modelos.find().limit(4).sort({nombre_modelo:1});
+//Aplicando un foreach de javascript
+db.Modelos.find().forEach(function(e){
+    print("nombre del modelo: " + e.nombre_modelo);
+});
